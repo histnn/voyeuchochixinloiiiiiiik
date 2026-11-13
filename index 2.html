@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gửi Phương Vy 💌</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #ffd6e0, #ffeef2 50%, #e8d9ff);
+    font-family: "Segoe UI", system-ui, sans-serif;
+    overflow-x: hidden;
+    padding: 16px 0 70px;
+  }
+  .card {
+    background: #fff; border-radius: 24px; padding: 26px 22px;
+    width: min(92vw, 440px);
+    text-align: center;
+    box-shadow: 0 12px 40px rgba(255, 105, 140, .25);
+    position: relative; z-index: 2;
+  }
+  #pic { width: 190px; height: 190px; object-fit: cover; border-radius: 18px; margin-bottom: 14px; background: #ffeef2; }
+  h1 { font-size: 1.4rem; color: #e0446a; margin-bottom: 10px; }
+  p  { color: #555; line-height: 1.6; margin-bottom: 8px; font-size: 1rem; }
+  .small { font-size: .85rem; color: #999; min-height: 1.2em; }
+  .btns { margin-top: 18px; display: flex; gap: 14px; justify-content: center; align-items: center; min-height: 52px; flex-wrap: wrap; }
+  button {
+    border: none; border-radius: 999px; padding: 12px 22px; font-size: 1rem;
+    cursor: pointer; font-weight: 600; transition: transform .15s;
+  }
+  #yes { background: #ff5c8a; color: #fff; font-size: 1.1rem; }
+  #yes:hover { transform: scale(1.08); }
+  #no  { background: #eee; color: #666; }
+  #letter { display: none; text-align: left; }
+  #letter h1 { text-align: center; }
+  #letter p { margin-bottom: 12px; }
+  .sign { text-align: right; font-style: italic; color: #e0446a; }
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 4px 0 16px; }
+  .gallery img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 12px; }
+  .heart { position: fixed; bottom: -30px; font-size: 22px; animation: rise linear forwards; z-index: 1; pointer-events: none; }
+  @keyframes rise { to { transform: translateY(-110vh) rotate(25deg); opacity: 0; } }
+
+  /* Nút nhạc */
+  #music {
+    position: fixed; top: 14px; right: 14px; z-index: 5;
+    width: 46px; height: 46px; padding: 0; font-size: 1.3rem;
+    background: #fff; box-shadow: 0 4px 14px rgba(255,105,140,.35);
+  }
+  #music.playing { animation: spin 3s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  /* Trình phát YouTube thu nhỏ ở góc dưới */
+  #playerbox { position: fixed; left: 10px; bottom: 10px; z-index: 4; width: 160px; height: 90px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,.25); background: #000; }
+  #playerbox iframe { width: 160px; height: 90px; }
+</style>
+</head>
+<body>
+
+<button id="music" title="Bật/tắt nhạc">🎵</button>
+<div id="playerbox"><div id="yt"></div></div>
+
+<div class="card">
+  <!-- Màn hình 1 -->
+  <div id="ask">
+    <img id="pic" src="meme3.jpg" alt="Xin lỗi mà">
+    <h1>Phương Vy yêu dấu ơi 😭</h1>
+    <p>Vợ iuu ơi, cho em xin lỗi nhó.</p>
+    <p>Em biết vợ buồn vì em không chịu nói rõ ràng. Cho em một cơ hội để nói hết với vợ nha?</p>
+    <div class="btns" id="btns">
+      <button id="yes">Vợ cho em cơ hội 💗</button>
+      <button id="no">Không bao giờ</button>
+    </div>
+    <p class="small" id="hint"></p>
+  </div>
+
+  <!-- Màn hình 2: lá thư -->
+  <div id="letter">
+    <h1>Gửi Phương Vy yêu dấu 💌</h1>
+    <div class="gallery">
+      <img src="anh5.jpg" alt="">
+      <img src="anh6.jpg" alt="">
+      <img src="anh7.jpg" alt="">
+    </div>
+    <p>Vợ iuu của em,</p>
+    <p>Em xin lỗi vì đã không chịu nói rõ ràng với vợ. Mỗi lần em im lặng hoặc nói vòng vo, vợ phải tự đoán và buồn một mình. Như vậy là không công bằng với vợ.</p>
+    <p>Em cũng nhận ra mình đã có lúc đổ lỗi, như thể chuyện đó là do vợ. Không phải vậy. Phần sai là của em, và em xin nhận lỗi, không biện minh nữa.</p>
+    <p>Em đã nói và làm quá đáng khiến vợ tổn thương. Em xin lỗi vợ thật lòng.</p>
+    <!-- ✏️ Có thể thêm 1 câu nói rõ chuyện hôm đó, ví dụ: "Hôm đó em đã nói ... , em không nên như vậy." -->
+    <p>Em xin vợ một cơ hội để sửa sai. Từ giờ, khi có chuyện, em sẽ nói thẳng và nhẹ nhàng, không đổ lỗi, và lắng nghe vợ nói hết trước khi nói ý mình.</p>
+    <p>Vì em yêu vợ nhiều lắm, Phương Vy ơi. 💗</p>
+    <p class="sign">— Em của vợ 🌷</p>
+  </div>
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  /* ===== Cấu hình nhạc ===== */
+  const VIDEO_ID = 'uM5d-t6PV_U';
+  const START_SEC = 90;    // bắt đầu từ 1:30
+  const SPEED = 1.3;       // tốc độ phát
+
+  let player = null, ready = false, wantPlay = false, startedOnce = false;
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('yt', {
+      width: 160, height: 90, videoId: VIDEO_ID,
+      playerVars: { start: START_SEC, rel: 0, playsinline: 1, controls: 1, modestbranding: 1 },
+      events: {
+        onReady: () => { ready = true; if (wantPlay) playMusic(); },
+        onStateChange: e => {
+          const musicBtn = document.getElementById('music');
+          if (e.data === YT.PlayerState.PLAYING) {
+            musicBtn.classList.add('playing');
+            applySpeed();
+          } else {
+            musicBtn.classList.remove('playing');
+          }
+        }
+      }
+    });
+  }
+  window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+
+  function applySpeed() {
+    try {
+      player.setPlaybackRate(SPEED);
+      // YouTube đôi khi chỉ nhận các mức cố định: chọn mức gần nhất nếu 1.3 không được
+      if (Math.abs(player.getPlaybackRate() - SPEED) > 0.01) {
+        const rates = player.getAvailablePlaybackRates();
+        let best = rates[0];
+        rates.forEach(r => { if (Math.abs(r - SPEED) < Math.abs(best - SPEED)) best = r; });
+        player.setPlaybackRate(best);
+      }
+    } catch (e) {}
+  }
+
+  function playMusic() {
+    wantPlay = true;
+    if (!ready) return;
+    try {
+      if (!startedOnce) { player.seekTo(START_SEC, true); startedOnce = true; }
+      player.playVideo();
+    } catch (e) {}
+  }
+
+  const musicBtn = document.getElementById('music');
+  musicBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    if (!ready) { wantPlay = true; return; }
+    if (player.getPlayerState() === YT.PlayerState.PLAYING) { player.pauseVideo(); wantPlay = false; }
+    else playMusic();
+  });
+  // Trình duyệt chỉ cho phát nhạc sau khi chạm màn hình lần đầu
+  document.addEventListener('pointerdown', playMusic, { once: true });
+
+  /* ===== Nút "Không bao giờ" chạy trốn ===== */
+  const yes = document.getElementById('yes');
+  const no = document.getElementById('no');
+  const hint = document.getElementById('hint');
+  const pic = document.getElementById('pic');
+  const memes = ['meme2.jpg', 'meme3.jpg', 'meme4.jpg', 'meme1.gif'];
+  const messages = [
+    "Bấm nhầm rồi đó 🙈", "Nút này hong bấm được đâu nha", "Vợ suy nghĩ lại đi mà 🥺",
+    "Em biết lỗi rồi mà 😭", "Cho em một cơ hội thôi nè 💗"
+  ];
+  let tries = 0;
+
+  function dodge() {
+    tries++;
+    hint.textContent = messages[Math.min(tries - 1, messages.length - 1)];
+    pic.src = memes[tries % memes.length];          // mỗi lần bấm đổi sang meme buồn hơn
+    no.style.position = 'fixed';
+    const w = window.innerWidth - no.offsetWidth - 20;
+    const h = window.innerHeight - no.offsetHeight - 20;
+    no.style.left = Math.max(10, Math.random() * w) + 'px';
+    no.style.top  = Math.max(10, Math.random() * h) + 'px';
+    yes.style.transform = 'scale(' + Math.min(1 + tries * 0.12, 1.8) + ')';
+  }
+  no.addEventListener('mouseenter', dodge);
+  no.addEventListener('touchstart', e => { e.preventDefault(); playMusic(); dodge(); });
+  no.addEventListener('click', dodge);
+
+  function hearts() {
+    for (let i = 0; i < 40; i++) {
+      const s = document.createElement('span');
+      s.className = 'heart';
+      s.textContent = ['💗', '💖', '💕', '🌸'][i % 4];
+      s.style.left = Math.random() * 100 + 'vw';
+      s.style.animationDuration = 3 + Math.random() * 3 + 's';
+      s.style.animationDelay = Math.random() * 1.5 + 's';
+      document.body.appendChild(s);
+      setTimeout(() => s.remove(), 7000);
+    }
+  }
+
+  yes.addEventListener('click', () => {
+    playMusic();
+    document.getElementById('ask').style.display = 'none';
+    no.style.display = 'none';
+    document.getElementById('letter').style.display = 'block';
+    window.scrollTo(0, 0);
+    hearts();
+  });
+</script>
+</body>
+</html>
